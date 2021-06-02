@@ -1,0 +1,5 @@
+/home/lucas/ECE0302/ICEs/ICE3/Starter Code-2/Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/ICEs/ICE3/Starter Code-2/Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/ICEs/ICE3/Starter Code-2/Starter Code/CMakeFiles/test.dir
+/home/lucas/ECE0302/ICEs/ICE3/Starter Code-2/Starter Code/CMakeFiles/submission.dir
+/home/lucas/ECE0302/ICEs/ICE3/Starter Code-2/Starter Code/CMakeFiles/fancyPower-tests.dir

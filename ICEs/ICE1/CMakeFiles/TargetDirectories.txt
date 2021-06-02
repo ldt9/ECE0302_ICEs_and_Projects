@@ -1,0 +1,5 @@
+/home/lucas/ICEs/ICE1/CMakeFiles/rebuild_cache.dir
+/home/lucas/ICEs/ICE1/CMakeFiles/edit_cache.dir
+/home/lucas/ICEs/ICE1/CMakeFiles/test.dir
+/home/lucas/ICEs/ICE1/CMakeFiles/submission.dir
+/home/lucas/ICEs/ICE1/CMakeFiles/bag-tests.dir

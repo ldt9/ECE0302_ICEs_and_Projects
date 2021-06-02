@@ -1,0 +1,5 @@
+/home/lucas/Projects/Project1/P1 - Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/Projects/Project1/P1 - Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/Projects/Project1/P1 - Starter Code/CMakeFiles/test.dir
+/home/lucas/Projects/Project1/P1 - Starter Code/CMakeFiles/submission.dir
+/home/lucas/Projects/Project1/P1 - Starter Code/CMakeFiles/bitset-tests.dir

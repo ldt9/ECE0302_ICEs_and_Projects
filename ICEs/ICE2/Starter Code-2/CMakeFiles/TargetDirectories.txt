@@ -1,0 +1,5 @@
+/home/lucas/ICEs/ICE2/Starter Code-1/CMakeFiles/rebuild_cache.dir
+/home/lucas/ICEs/ICE2/Starter Code-1/CMakeFiles/edit_cache.dir
+/home/lucas/ICEs/ICE2/Starter Code-1/CMakeFiles/test.dir
+/home/lucas/ICEs/ICE2/Starter Code-1/CMakeFiles/submission.dir
+/home/lucas/ICEs/ICE2/Starter Code-1/CMakeFiles/bag-tests.dir
