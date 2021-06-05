@@ -1,0 +1,6 @@
+/home/lucas/ECE0302/Projects/Project2/P2 files/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/Projects/Project2/P2 files/CMakeFiles/submission.dir
+/home/lucas/ECE0302/Projects/Project2/P2 files/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/Projects/Project2/P2 files/CMakeFiles/test.dir
+/home/lucas/ECE0302/Projects/Project2/P2 files/CMakeFiles/FindPalindrome-main.dir
+/home/lucas/ECE0302/Projects/Project2/P2 files/CMakeFiles/FindPalindrome-tests.dir
