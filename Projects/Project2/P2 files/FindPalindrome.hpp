@@ -30,6 +30,8 @@ private:
 	void recursiveFindPalindromes(std::vector<std::string> currentCandidateVector,
 			   	                  std::vector<std::string> currentStringVector);
 
+public:
+
 	/** function to see if a string is a palindrome (provided).
 	  You may use the provided function, write your own, or use one of the billions
 	  of palindrome functions available on the Internet. Note: you probably
@@ -37,7 +39,6 @@ private:
 	  inefficient). You may change the signature of this function. */
 	bool isPalindrome(std::string currentString) const;
 
-public:
 	/** Constructor for the FindPalindrome object. */
 	FindPalindrome();
 
