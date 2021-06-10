@@ -43,6 +43,7 @@ TEST_CASE( "add a single palindrom string", "[FindPalindrome]" )
 	//std::cout << "\nThe sentence palindromes are:" << std::endl;
 	std::vector<std::vector<std::string>> vectorList = a.toVector();
 
+	/**
 	for (int i=0; i<vectorList.size(); i++) {
 		for (int j=0; j<vectorList[i].size(); j++) {
 			std::cout << vectorList[i][j] << " ";
@@ -50,6 +51,7 @@ TEST_CASE( "add a single palindrom string", "[FindPalindrome]" )
 		std::cout << std::endl;
 	}
 	std::cout << std::endl;
+	*/
 	
 	//test that the number of palindromes is correct and matches a.number()
 	REQUIRE(vectorList.size() == 24);
@@ -104,8 +106,10 @@ TEST_CASE("cut test 2", "[FindPalindrome]"){
 	badVector2.push_back("a");
 	REQUIRE(!a.cutTest2(badVector2, badVector1));
 }
+/**
 TEST_CASE("isPalindrome", "[FindPalindrome]"){
 	std::string temp = "Racecar";
 	FindPalindrome a;
 	REQUIRE(a.isPalindrome(temp));
 }
+*/

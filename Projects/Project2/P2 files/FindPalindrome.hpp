@@ -29,15 +29,15 @@ private:
 	    a grade of zero for the project. */
 	void recursiveFindPalindromes(std::vector<std::string> currentCandidateVector,
 			   	                  std::vector<std::string> currentStringVector);
+														
+	/** function to see if a string is a palindrome (provided).
+		You may use the provided function, write your own, or use one of the billions
+		of palindrome functions available on the Internet. Note: you probably
+		do not want to use a recursive version for this test (as it is
+		inefficient). You may change the signature of this function. */
+	bool isPalindrome(std::string currentString) const;
 
 public:
-
-	/** function to see if a string is a palindrome (provided).
-	  You may use the provided function, write your own, or use one of the billions
-	  of palindrome functions available on the Internet. Note: you probably
-	  do not want to use a recursive version for this test (as it is
-	  inefficient). You may change the signature of this function. */
-	bool isPalindrome(std::string currentString) const;
 
 	/** Constructor for the FindPalindrome object. */
 	FindPalindrome();
