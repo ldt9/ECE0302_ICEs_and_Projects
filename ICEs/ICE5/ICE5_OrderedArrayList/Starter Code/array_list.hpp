@@ -2,6 +2,7 @@
 #define ARRAY_LIST_HPP
 
 #include "abstract_list.hpp"
+//#include "PrecondViolatedExcept.h"
 
 template<typename T>
 class ArrayList: public AbstractList<T>

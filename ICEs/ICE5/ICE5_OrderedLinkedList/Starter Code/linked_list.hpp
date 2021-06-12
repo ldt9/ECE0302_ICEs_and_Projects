@@ -8,22 +8,22 @@ template <typename T>
 class LinkedList: public AbstractList<T>
 {
 public:
-  
+
   // default constructor
   LinkedList();
-  
+
   // copy constructor
   LinkedList(const LinkedList& x);
-    
+
   // destructor
   ~LinkedList();
-  
+
   // copy assignment
   LinkedList& operator=(const LinkedList& x);
 
-  // swap two lists 
+  // swap two lists
   void swap(LinkedList& x, LinkedList& y);
-  
+
   // determine if a list is empty
   bool isEmpty() const;
 
@@ -47,7 +47,15 @@ public:
 
 private:
 
-  //TODO
+  //we are creating a singly linked list which only goes in one direction,
+  //and only needs a pointer to the head of the list
+  Node<T>* head;
+
+  //to point to the last element in the array so as to keep a running total of the size
+  size_t size;
+
+  //this private function locates the node at a given position by traversing the chain
+  Node<T>* getNodeAt(std::size_t position) const;
   
 };
 

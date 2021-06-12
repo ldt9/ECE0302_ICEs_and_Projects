@@ -46,7 +46,7 @@ TEST_CASE("insert random values then getEntry to see if in order", "[ArrayList]"
   REQUIRE(b.insert(4));
   REQUIRE(b.insert(2));
   REQUIRE(b.insert(6));
-  REQUIRE(b.insert(34));
+  REQUIRE(b.insert(36));
   REQUIRE(b.insert(12));
   REQUIRE(b.insert(5));
 
@@ -54,7 +54,7 @@ TEST_CASE("insert random values then getEntry to see if in order", "[ArrayList]"
   REQUIRE(b.getLength() == 11);
 
   //see if the order of values is correct (added a zero to the front here since we are indexing by 1's and it likes a value here)
-  int x[12] = {0, 1, 2, 2, 3, 4, 5, 5, 6, 8, 12, 34};
+  int x[12] = {0, 1, 2, 2, 3, 4, 5, 5, 6, 8, 12, 36};
   for (int i = 1; i < 12; i++){
     REQUIRE(b.getEntry(i) == x[i]);
   }
@@ -65,20 +65,20 @@ TEST_CASE("insert random values then getEntry to see if in order", "[ArrayList]"
   REQUIRE(b.isEmpty());
 }
 TEST_CASE("remove method in the beginning/middle/end of an array", "[ArrayList]"){
-  ArrayList<int> b;
+  ArrayList<int> c;
 
   //filling an array with 10 numbers
   for (int i = 1; i < 11; i++){
-    REQUIRE(b.insert(i));
+    REQUIRE(c.insert(i));
   }
 
   //testing remove of the first, middle and last element
-  REQUIRE(b.remove(1));
-  REQUIRE(b.remove(5));
-  REQUIRE(b.remove(10));
+  REQUIRE(c.remove(1));
+  REQUIRE(c.remove(4));
+  REQUIRE(c.remove(6));
   //testing 2 elements out of scope
-  REQUIRE(!b.remove(15));
-  REQUIRE(!b.remove(-3));
+  REQUIRE(!c.remove(15));
+  REQUIRE(!c.remove(-3));
 
 }
 
@@ -100,13 +100,13 @@ TEST_CASE("copy constructor and assignment tests, including getEntry and setEntr
   REQUIRE(b.getEntry(5) == c.getEntry(5));
   REQUIRE(a.getEntry(5) == c.getEntry(5));
   //returns -1 if out of scope
-  REQUIRE(a.getEntry(11) == -1);
+  REQUIRE(a.getEntry(30) == -1);
   REQUIRE(b.getEntry(-7) == -1);
 
   //testing remove of the first, middle and last element
   REQUIRE(b.remove(1));
-  REQUIRE(b.remove(5));
-  REQUIRE(b.remove(10));
+  REQUIRE(b.remove(4));
+  REQUIRE(b.remove(6));
   //testing 2 elements out of scope
   REQUIRE(!b.remove(15));
   REQUIRE(!b.remove(-3));
@@ -114,7 +114,7 @@ TEST_CASE("copy constructor and assignment tests, including getEntry and setEntr
   //testing remove of the first, middle and last element
   REQUIRE(c.remove(1));
   REQUIRE(c.remove(5));
-  REQUIRE(c.remove(10));
+  REQUIRE(c.remove(6));
   //testing 2 elements out of scope
   REQUIRE(!c.remove(15));
   REQUIRE(!c.remove(-3));
@@ -127,8 +127,6 @@ TEST_CASE("copy constructor and assignment tests, including getEntry and setEntr
   REQUIRE(b.getEntry(5) == 7);
   REQUIRE(c.getEntry(5) == 9);
   //try to set out of scope
-  a.setEntry(12, 0);
   a.setEntry(-5, 0);
-  REQUIRE(a.getEntry(12) == -1);
   REQUIRE(a.getEntry(-5) == -1);
 }

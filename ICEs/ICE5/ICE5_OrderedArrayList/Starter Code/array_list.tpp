@@ -82,7 +82,7 @@ template <typename T>
 bool ArrayList<T>::insert(const T& item){
   //check to see if we are at the end of the array (size == maxSize), if not insert as usual
   int count = 0; //to count the element that item can exist between
-  if (size != maxSize || size != 1){
+  if (size < maxSize && size > 1){
     for (int i = 1; i <= size; i++){
       ++count; //loop through the size of the array and increase count when item is greater than arrayPtr[i]
       if (item < arrayPtr[i]) break;
@@ -138,10 +138,10 @@ bool ArrayList<T>::remove(std::size_t position){
   if(position > size+1 || position >= maxSize || position < 1) return false;
 
   //then shift left the values below it
-  for(std::size_t i = position; i < size; ++i){
+  for(std::size_t i = position; i < size; i++){
     arrayPtr[i] = arrayPtr[i+1];
+    size--; //decrement the size pointer because we removed an item
   }
-  size--; //decrement the size pointer because we removed an item
   return true;
 }
 
@@ -151,17 +151,33 @@ void ArrayList<T>::clear() {
 }
 
 template <typename T>
-T ArrayList<T>::getEntry(std::size_t position) const {
-  //if its out of scope return -1 as an error value
-  if(position < 1 || position >= size){return -1;}
-  //else return what is at the position
-  return arrayPtr[position];
-}
+T ArrayList<T>::getEntry(std::size_t position) const{
+    //if its out of scope return -1 as an error value
+    if(position >= 1 && position <= size){return arrayPtr[position];}
+    else{
+        return -1;
+    }
+  }
 
 template <typename T>
 void ArrayList<T>::setEntry(std::size_t position, const T& newValue) {
+  bool validity = (position>=1) && (position <= size+1) && (size < maxSize);
+  if (validity){
+    //make room for new entry by shifting all entries at
+    //positions from size down to position
+    //no shift if position == size+1
+    for(int i = size; i >= position; i--){
+      arrayPtr[i+1] = arrayPtr[i];
+      //insert new value
+      arrayPtr[position] = newValue;
+      size++; //increase number of entries
+    }
+  }
+
+  /**
   //if its out of scope maintain the value
-  if(position < 1 || position >= maxSize){arrayPtr[position] = arrayPtr[position];}
+  if(position > 1 || position >= maxSize){arrayPtr[position] = arrayPtr[position];}
   //replace existing value with newValue
   arrayPtr[position] = newValue;
+  */
 }

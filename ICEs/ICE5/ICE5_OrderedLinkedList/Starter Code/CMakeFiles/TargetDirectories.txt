@@ -1,0 +1,4 @@
+/home/lucas/ECE0302/ICEs/ICE5/ICE5_OrderedLinkedList/Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/ICEs/ICE5/ICE5_OrderedLinkedList/Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/ICEs/ICE5/ICE5_OrderedLinkedList/Starter Code/CMakeFiles/test.dir
+/home/lucas/ECE0302/ICEs/ICE5/ICE5_OrderedLinkedList/Starter Code/CMakeFiles/test_linked_list.dir
