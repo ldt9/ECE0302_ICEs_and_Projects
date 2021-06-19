@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Node.cpp
+cstddef
+-
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Node.hpp
+
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Node.hpp
+Node.cpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Node.cpp
+
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Stack.cpp
+iostream
+-
+cstddef
+-
+cassert
+-
+Stack.hpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Stack.hpp
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Node.hpp
+
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Stack.hpp
+stdexcept
+-
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Node.hpp
+Stack.cpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Stack.cpp
+
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/mainStack.cpp
+iostream
+-
+Stack.hpp
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Stack.hpp
+
