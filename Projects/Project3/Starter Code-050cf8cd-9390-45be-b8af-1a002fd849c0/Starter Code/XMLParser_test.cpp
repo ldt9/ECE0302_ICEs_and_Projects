@@ -25,7 +25,7 @@ TEST_CASE( "Test Bag add", "[XMLParser]" )
 		}
 }
 
-TEST_CASE( "Test Stack push", "[XMLParser]" )
+TEST_CASE( "Test Stack push, peek, pop", "[XMLParser]" )
 {
 	   INFO("Hint: testing Stack push()");
 		// Create a Stack to hold ints
@@ -34,22 +34,46 @@ TEST_CASE( "Test Stack push", "[XMLParser]" )
 		int stackSize;
 		bool success;
 		for (int i=0; i<testSize; i++) {
+			//testing values can be pushed onto the stack
 			success = intStack.push(i);
 			REQUIRE(success);
+			//testing the size increases
 			stackSize = intStack.size();
 			success = (stackSize == (i+1));
 			REQUIRE(success);
+			//testing that the value pushed can be peeked at
+			success = (intStack.peek() == i);
+			REQUIRE(success);
 		}
+		//testing that items can be popped
+		for (int i=0; i<testSize; i++) {
+			intStack.pop();
+		}
+		//and that the size will decrement each time
+		success = (intStack.size()==0);
+		REQUIRE(success);
+
 }
 
-TEST_CASE( "Test XMLParser tokenizeInputString", "[XMLParser]" )
+TEST_CASE( "Test XMLParser tokenizeInputString for DECLARATION, EMPTY_TAG, START_TAG, END_TAG", "[XMLParser]" )
 {
 	   INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
-		string testString = "<test>stuff</test>";
+//		string testString = "<test>stuff</test>";
+		string testString = "<?DEC?><start></start></empty>";
+		bool success;
+		success = myXMLParser.tokenizeInputString(testString);
+		REQUIRE(success);
+
+}TEST_CASE( "Test XMLParser tokenizeInputString for CONTENT", "[XMLParser]" )
+{
+	   INFO("Hint: tokenize single element test of XMLParse");
+		// Create an instance of XMLParse
+		XMLParser myXMLParser;
+		string testString = "<?Ultimate CONTENT Test?><test> how much can I add here before this breaks? HAHAHAHA it will never break HAHAHAHAHA I love coding lolololololol. </test><empty/> ";
+//		string testString = "<?DEC?><start></start></empty>";
 		bool success;
 		success = myXMLParser.tokenizeInputString(testString);
 		REQUIRE(success);
 }
-

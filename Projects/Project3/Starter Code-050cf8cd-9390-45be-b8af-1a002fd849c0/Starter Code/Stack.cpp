@@ -19,10 +19,7 @@ Stack<ItemType>::Stack() : headPtr(nullptr), currentSize(0)
 template<class ItemType>
 Stack<ItemType>::~Stack()
 {
-	//pop stack until empty
-	while (!isEmpty()){
-		pop();
-	}
+	clear(); // run clear command it does same thing
 }  // end destructor
 
 // TODO: Implement the isEmpty method here
@@ -47,6 +44,7 @@ bool Stack<ItemType>::push(const ItemType& newItem)
 	Node<ItemType>* newNode = new Node<ItemType>(newItem, headPtr);//create node for the newItem and have its nextNodePtr point to the headPtr
 	headPtr = newNode; //set the head pointer to the head of the newNode
 	newNode = nullptr; //then nullify the newNodePtr since it was used temporarily
+	currentSize++; //increment the size
 	return true;
 }  // end push
 
@@ -73,10 +71,11 @@ bool Stack<ItemType>::pop()
 		tempDeleteNode->setNext(nullptr); //set the previous headptr to null, effectivley deleteing node
 		delete tempDeleteNode; //clean up the temp variable
 		tempDeleteNode = nullptr;
+		currentSize--; //decrement the size
 
 		return true;//successful deletion/pop
 	}
-	else{return false;}
+	return false;
 }  // end pop
 
 // TODO: Implement the clear method here
