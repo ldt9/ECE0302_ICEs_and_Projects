@@ -1,4 +1,4 @@
-// Project 3 -- XML Parsing Project
+//std::cout// Project 3 -- XML Parsing Project
 
 /** XML parsing class implementation.
     @file XMLParser.cpp */
@@ -6,6 +6,8 @@
 #include <string>
 #include <assert.h>
 #include "XMLParser.hpp"
+
+static std::string deleteAttributes(std::string input);
 
 // TODO: Implement the constructor here
 XMLParser::XMLParser()
@@ -18,7 +20,6 @@ XMLParser::XMLParser()
 // TODO: Implement the destructor here
 XMLParser::~XMLParser()
 {
-	Tokenize, Parse = false; //set bool flags low
 	clear(); //run clear command
 }  // end destructor
 
@@ -34,7 +35,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 		bool test = false;
 
 		//have the length of the string and the string itself outputted for testing
-		std:: cout << "The string is: " << inputString << std:: endl << "Its length is: " << inputString.size() << std::endl;
+		//std::cout << "The string is: " << inputString << std:: endl << "Its length is: " << inputString.size() << std::endl;
 
 		//loop from the start to the end of the string
 		while(pos < inputString.size()-1){
@@ -50,8 +51,8 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 					pos++; //increment the cursor ptr
 				}
 				//once the while loops break, see what came out of it
-				std:: cout << "Complete String Input: " << inputString << std:: endl;
-				std:: cout << "this is the potential tag: " << tempTag << std:: endl;
+				//std::cout << "Complete String Input: " << inputString << std:: endl;
+				//std::cout << "this is the potential tag: " << tempTag << std:: endl;
 				//now that we have whats inside the < and > saved we can use the loop hang to our advantage
 
 				//END_TAG starts with a '/'
@@ -65,7 +66,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 						tagName += tempTag[j]; // basically we're removing the '/' infront of the tag name
 					}
 					//testing correct output
-					std::cout << "tagName: " << tagName << std:: endl;
+					//std::cout << "tagName: " << tagName << std:: endl;
 				}
 
 				//EMPTY_TAG ends with a '/'
@@ -79,7 +80,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 						tagName += tempTag[j]; // basically we're removing the '/' at the end of the tag name
 					}
 					//testing correct output
-					std::cout << "tagName: " << tagName << std:: endl;
+					//std::cout << "tagName: " << tagName << std:: endl;
 				}
 
 				//DECLARATION begins and ends witha '?'
@@ -92,7 +93,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 						tagName += tempTag[j]; // copies the shortend string to tagName
 					}
 					//testing for correct output
-					std::cout << "tagName: " << tagName << std::endl;
+					//std::cout << "tagName: " << tagName << std::endl;
 				}
 
 				//START_TAG only has < and >
@@ -105,33 +106,32 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 					int j = 0;
 
 					//testing for correct output
-					std::cout << "tagName: " << tagName << std::endl;
+					//std::cout << "tagName: " << tagName << std::endl;
 				}
 				//update the Token name and type
 				if(tagType == "END_TAG")
 				{
-					std::cout << "Token is EndTag" << std:: endl << std:: endl;
+					//std::cout << "Token is EndTag" << std:: endl << std:: endl;
 					newStruct.tokenType = END_TAG;
-					break; //break here causes errors after finding content if i dont
+					//break; //break here causes errors after finding content if i dont
 				}
 				else if (tagType == "START_TAG")
 				{
-					std::cout << "Token is StartTag" << std:: endl;
+					//std::cout << "Token is StartTag" << std:: endl;
 					newStruct.tokenType = START_TAG;
 				}
 				else if(tagType == "EMPTY_TAG")
 				{
-					std::cout << "Token is EmptyTag" << std:: endl;
+					//std::cout << "Token is EmptyTag" << std:: endl;
 					newStruct.tokenType = EMPTY_TAG;
 				}
-				else if (tagType == "DECLARATION")
+				else
 				{
-					std::cout << "Token is Declaration" << std:: endl;
+					//std::cout << "Token is Declaration" << std:: endl;
 					newStruct.tokenType = DECLARATION;
 				}
-				//also need to send the name of the tag
+				//std:: cout << tagName << std:: endl;
 				newStruct.tokenString = tagName;
-
 				//need to make sure tag passes tests
 				if(test == true){
 					//NEED TO MAKE SURE THE TAG DOESNT START WITH ILLEGAL CHARACTERS
@@ -175,7 +175,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 							break;
 						default:
 							//do nothing
-							//std:: cout << "there are no illegal characters at first index" << std::endl;
+							////std::cout << "there are no illegal characters at first index" << std::endl;
 							break;
 					}
 
@@ -187,124 +187,124 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 						//switch though the case statement
 						switch(inx){
 							case '!' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '"' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '#' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '$' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '%' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '&' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '\'' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '(' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ')' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '*' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '+' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ',' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '/' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ';' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '<' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '=' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '>' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '?' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '@' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '[' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '\\' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ']' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '^' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '`' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '{' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '|' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '}' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '~' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ' ' :
-								std:: cout << "ILLEGAL!!" << std::endl;
+								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							default:
 								//do nothing
-								//std:: cout << "there are no illegal characters throughout" << std::endl;
+								////std::cout << "there are no illegal characters throughout" << std::endl;
 								break;
 						}
 					}
@@ -312,7 +312,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 				//need to update the vector and tags
 				tokenizedInputVector.push_back(newStruct);
 				//tell the terminal what happened
-				std:: cout << "successful push..." << std:: endl;
+				//std::cout << "successful push..." << std:: endl;
 			}
 
 			pos++;
@@ -327,7 +327,7 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 					pos++;//increment the cursor
 				}
 				//testing correct output
-				std:: cout << "tagName: " << tagName << std:: endl;
+				//std::cout << "tagName: " << tagName << std:: endl;
 				//make sure tag is not completley white space
 				int whiteSpace = 0;
 				for (int i = 0; i < tagName.size(); i++){
@@ -338,12 +338,12 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 				if(whiteSpace < tagName.size()){
 					//if its not completley white space we can make it a CONTENT tag
 					newStruct.tokenString = tagName;
-					std::cout << "Token is CONTENT" << std:: endl;
+					//std::cout << "Token is CONTENT" << std:: endl;
 					newStruct.tokenType = CONTENT;
 
 					//push back into the input vector
 					tokenizedInputVector.push_back(newStruct);
-					std:: cout << "successful push" << std::endl;
+					//std::cout << "successful push" << std::endl;
 				}
 			}
 			//END OF ALL ITERATIONS
@@ -360,18 +360,60 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 // or EMPTY_TAG string (you can change this...)
 static std::string deleteAttributes(std::string input)
 {
+	//Implement this function to delete everything in a tag once it finds a whitespace (ISSPACE())
+	//then figure out how to get the function to stop once it reaches a white space for content
 	return input;
 }
 
 // TODO: Implement the parseTokenizedInput method here
 bool XMLParser::parseTokenizedInput()
 {
-	return false;
+	//fail if start tag doesn't match end tag, or stack still has elements
+
+	//instantiate instance of _TokenStruct_
+	_TokenStruct_ tempStruct;
+	//temp string veriables to help process
+	string temp, peek;
+
+	//loop through the elements in the input vector
+	for(int i = 0; i < tokenizedInputVector.size(); i++){
+		//asign our tempStruct from a token in the tokenVec
+		tempStruct = tokenizedInputVector.at(i);
+		//assign the matching string
+		temp = tempStruct.tokenString;
+
+		if(tempStruct.tokenType == START_TAG){
+			//push into the stack
+			parseStack->push(temp);
+		}
+		if(tempStruct.tokenType == END_TAG){
+			peek = parseStack->peek();
+			if(peek != temp){
+				return false; //the tags don't match
+			}
+			else if(peek == temp){
+				elementNameBag->add(temp);
+				parseStack->pop(); //remove the top element and repeat
+			}
+		}
+		//if its an empty tag
+		if(tempStruct.tokenType == EMPTY_TAG){
+			elementNameBag->add(temp);
+		}
+	}
+	Parse = true; //set parse flag
+	return true;
 }
 
 // TODO: Implement the clear method here
 void XMLParser::clear()
 {
+	//delete stack, bag and vector contents
+	elementNameBag->clear();
+	parseStack->clear();
+	tokenizedInputVector.clear();
+	//reset bool flags
+	Parse, Tokenize = false;
 }
 
 vector<TokenStruct> XMLParser::returnTokenizedInput() const
@@ -382,11 +424,31 @@ vector<TokenStruct> XMLParser::returnTokenizedInput() const
 // TODO: Implement the containsElementName method
 bool XMLParser::containsElementName(const std::string &inputString) const
 {
-	return false;
+	assert(Parse == 1 && Tokenize == 1); //assert pre condition before entering loop
+
+	//begin search
+	for(int i = 0; i < elementNameBag->size(); i++){
+		if(elementNameBag->contains(inputString)){
+			return true;
+		}
+	}
+	return false; //reached end of loop with no matches
 }
 
 // TODO: Implement the frequencyElementName method
 int XMLParser::frequencyElementName(const std::string &inputString) const
 {
-	return -1;
+	assert(Parse == 1 && Tokenize == 1); //assert pre condition before entering loop
+
+	int count = 0; //running frequency total
+
+	//create an empty vector and fill it with the element names
+	std:: vector <std::string> tempVec = elementNameBag->toVector();
+	for(int i = 0; i < elementNameBag->size(); i++){
+		if(tempVec.at(i) == inputString){
+			count++; //if theres a matching element increase count
+		}
+	}
+	tempVec = std::vector<std::string>(); //throw out temp vector
+	return count;
 }

@@ -61,19 +61,22 @@ TEST_CASE( "Test XMLParser tokenizeInputString for DECLARATION, EMPTY_TAG, START
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 //		string testString = "<test>stuff</test>";
-		string testString = "<?DEC?><start></start></empty>";
+		string testString = "<?DEC?><start><empty/></start><start2></start2>";
 		bool success;
 		success = myXMLParser.tokenizeInputString(testString);
 		REQUIRE(success);
+		myXMLParser.clear();
+}
 
-}TEST_CASE( "Test XMLParser tokenizeInputString for CONTENT", "[XMLParser]" )
+TEST_CASE( "Test XMLParser tokenizeInputString for CONTENT", "[XMLParser]" )
 {
 	   INFO("Hint: tokenize single element test of XMLParse");
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
-		string testString = "<?Ultimate CONTENT Test?><test> how much can I add here before this breaks? HAHAHAHA it will never break HAHAHAHAHA I love coding lolololololol. </test><empty/> ";
+		string testString = "<?Ultimate CONTENT Test?><test> how much can I add here before this breaks? HAHAHAHA it will never break HAHAHAHAHA I love coding lolololololol. </test><empty/>";
 //		string testString = "<?DEC?><start></start></empty>";
 		bool success;
 		success = myXMLParser.tokenizeInputString(testString);
 		REQUIRE(success);
+		myXMLParser.clear();
 }
