@@ -61,7 +61,7 @@ TEST_CASE( "Test XMLParser tokenizeInputString for DECLARATION, EMPTY_TAG, START
 		// Create an instance of XMLParse
 		XMLParser myXMLParser;
 //		string testString = "<test>stuff</test>";
-		string testString = "<?DEC?><start><empty/></start><start2></start2>";
+		string testString = "<?DEC abc?><start><empty/></start><start2></start2>";
 		bool success;
 		success = myXMLParser.tokenizeInputString(testString);
 		REQUIRE(success);
@@ -78,5 +78,23 @@ TEST_CASE( "Test XMLParser tokenizeInputString for CONTENT", "[XMLParser]" )
 		bool success;
 		success = myXMLParser.tokenizeInputString(testString);
 		REQUIRE(success);
+		myXMLParser.clear();
+}
+
+TEST_CASE( "Test XMLParser tokenizeInputString for removing attributes", "[XMLParser]" )
+{
+	   INFO("Hint: tokenize single element test of XMLParse");
+		// Create an instance of XMLParse
+		XMLParser myXMLParser;
+		string testString = "<?dec user = 'yeee' remove this too yadda yadda yadda     ?><start>This is some content because why not</start><emptytag/>";
+//		string testString = "<?DEC?><start></start></empty>";
+		bool success;
+		success = myXMLParser.tokenizeInputString(testString);
+		REQUIRE(success);
+		REQUIRE(myXMLParser.parseTokenizedInput());
+
+		REQUIRE(myXMLParser.containsElementName("start"));
+		REQUIRE(myXMLParser.frequencyElementName("start") == 1);
+
 		myXMLParser.clear();
 }

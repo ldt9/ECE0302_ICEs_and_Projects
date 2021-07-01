@@ -51,6 +51,8 @@ Stack.cpp
 /home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/Stack.cpp
 
 /home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/XMLParser.cpp
+iostream
+-
 string
 -
 assert.h

@@ -2,7 +2,7 @@
 
 /** XML parsing class implementation.
     @file XMLParser.cpp */
-
+#include <iostream>
 #include <string>
 #include <assert.h>
 #include "XMLParser.hpp"
@@ -24,116 +24,159 @@ XMLParser::~XMLParser()
 }  // end destructor
 
 // TODO: Implement the tokenizeInputString method
-bool XMLParser::tokenizeInputString(const std::string &inputString)	{
-		//instantiate a TokenStruct instance
-		TokenStruct newStruct;
-		//create string variables to hold names to be pushed
-		string tempTag, tagName, tagType = "";
-		//create a variable for the position of the cursor
-		int pos = 0;
-		//create a variable to say if the tag needs to be tested
-		bool test = false;
+bool XMLParser::tokenizeInputString(const std::string &inputString){
 
-		//have the length of the string and the string itself outputted for testing
-		//std::cout << "The string is: " << inputString << std:: endl << "Its length is: " << inputString.size() << std::endl;
+	//create and instance of the structure
+	TokenStruct myStruct;
+	//create strings to help later
+	string tempString, tagName, decTagName, tagType, strLengthTrack;
+	//int to start and stop tag
+	int start, stop, a;
 
-		//loop from the start to the end of the string
-		while(pos < inputString.size()-1){
-			//empty the strings just to be sure
-			tempTag, tagName, tagType = "";
+	int pos = 0;
+	int buffer = 0;
 
-			//check for the beginning of a tag
-			if(inputString[pos] == '<'){
-				//use a nested while loop to check for validity of different tags
-				while(inputString[pos] != '>' && inputString[pos+1] != '>'){
-					//feed the values between the < and > into the temp string
-					tempTag += inputString[pos+1];
-					pos++; //increment the cursor ptr
+	//variable to determine if the tag should be tested or not
+	bool test = false;
+	//loop from the start of the string to the end of the string
+	//std:: cout << "The length of the string is : " << inputString.length() << std::endl;
+	while(pos < inputString.length()-1)
+	{
+		//clear the strings
+		tempString = "";
+		tagName = "";
+		tagType = "";
+		decTagName = "";
+		//check for the start of a tag
+		if(inputString[pos] == '<')
+		{
+
+			a= pos + 1;
+			//check validity
+			while (inputString[pos] != '>')
+			{
+				while(inputString[a] != '>')
+				{
+					tempString += inputString[a]; //adds the chars between < and > to tempString
+					strLengthTrack += inputString[a]; // used for tracking
+					pos++;
+					//increase a
+					a++;
 				}
-				//once the while loops break, see what came out of it
-				//std::cout << "Complete String Input: " << inputString << std:: endl;
-				//std::cout << "this is the potential tag: " << tempTag << std:: endl;
-				//now that we have whats inside the < and > saved we can use the loop hang to our advantage
 
-				//END_TAG starts with a '/'
-				if(tempTag[0] == '/'){
-					//clear the tag name
-					//tagName = "";
+				//std::cout << "TempString: " << tempString << std::endl;
+				//std::cout << "this is the potential tag: " << tempString <<  std::endl;
+				//now that we gave a potential tag, check to see if it is valid
+				//SEE WHAT TYPE OF TAG IT IS
+				//MAKE SURE IT DOES NOT CONTAIN ILLEGAL CHARACTERS
+				//check for tag type
+
+				//End tag -- determines type of token and token name -- should be ok
+				if(tempString[0] == '/')
+				{
 					tagType = "END_TAG";
-					//next we want to test content at the end
 					test = true;
-					for(int j = 1; j < tempTag.size(); j++){
-						tagName += tempTag[j]; // basically we're removing the '/' infront of the tag name
+					for(int j  = 1; j < tempString.length(); j++)
+					{
+						tagName+= tempString[j];	//fixes tagName
 					}
-					//testing correct output
-					//std::cout << "tagName: " << tagName << std:: endl;
+					//testing for correct output
+					//std::cout << "TagName: " << tagName << std::endl;
 				}
-
-				//EMPTY_TAG ends with a '/'
-				else if(tempTag[tempTag.size() - 1] == '/'){
-					//clear the tag name
-					//tagName = "";
+				//Empty tag -- determines type of token and token name
+				else if(tempString[tempString.length()-1] == '/' )	//last character
+				{
 					tagType = "EMPTY_TAG";
-					//next we want to test content at the end
 					test = true;
-					for(int j = 0; j < tempTag.size()-1; j++){
-						tagName += tempTag[j]; // basically we're removing the '/' at the end of the tag name
+					//copy the string until the last elements
+					for(int j  = 0; j < tempString.length()-1; j++)
+					{
+						tagName+=  tempString[j];
 					}
-					//testing correct output
-					//std::cout << "tagName: " << tagName << std:: endl;
+					//testing for correct output
+					//std::cout << "Tagname: " << tagName << std::endl;
 				}
-
-				//DECLARATION begins and ends witha '?'
-				else if(tempTag[0] == '?' && tempTag[tempTag.size() - 1] == '?'){
-					//clear the tag name
-					//tagName = "";
+				//Declaration -- determines type of token and token name
+				else if(tempString[0]== '?' && tempString[tempString.length()-1] == '?')
+				//first element and last element are ?
+				{
 					tagType = "DECLARATION";
-					test = false; // because there will be no content
-					for (int j = 1;  j < tempTag.size() - 1; j++){
-						tagName += tempTag[j]; // copies the shortend string to tagName
+					test = false;
+					//copy the tag name minus the ?
+					int count = 0;
+					//tag name should be the whole string minus the ??
+					int b = 0;
+					//while (tempString[b] != ' ' && tempString[b]!= '/')
+					//{
+					//	count++;
+					//	b++;
+					//}
+					//for(int j = 1; j <= count; j++ )
+					for (int j = 1;  j < tempString.length()-1; j++)
+					{
+						tagName+= tempString[j]; // copies the shortend string to tagName
 					}
 					//testing for correct output
-					//std::cout << "tagName: " << tagName << std::endl;
+					//std::cout << "Tagname: " <<tagName << std::endl;
 				}
-
-				//START_TAG only has < and >
-				else{
-					//clear the tag name
-					//tagName = "";
+				//Start tag
+				else
+				{
 					tagType = "START_TAG";
-					test = true; //want to test for content at end
-					tagName = tempTag; //nothing to remove if start tag
+					test = true;
+					//tag should defualt to a start tag -- still have to test if valid
+					//tagName = tempString;
 					int j = 0;
-
+					while(tempString[j]!= '>' && j < tempString.length())
+					{
+						tagName+=tempString[j];
+						j++;
+						if(tempString[j]== ' ')
+						{
+							break;
+						}
+					}
 					//testing for correct output
-					//std::cout << "tagName: " << tagName << std::endl;
+					//std::cout << "Tag Type: " << tagType << std::endl;
 				}
-				//update the Token name and type
+
+				//update the token name and token type
+
 				if(tagType == "END_TAG")
 				{
-					//std::cout << "Token is EndTag" << std:: endl << std:: endl;
-					newStruct.tokenType = END_TAG;
-					//break; //break here causes errors after finding content if i dont
+					//std::cout << "Token is EndTag" << std:: endl;
+					myStruct.tokenType = END_TAG;
 				}
 				else if (tagType == "START_TAG")
 				{
 					//std::cout << "Token is StartTag" << std:: endl;
-					newStruct.tokenType = START_TAG;
+					myStruct.tokenType = START_TAG;
 				}
 				else if(tagType == "EMPTY_TAG")
 				{
 					//std::cout << "Token is EmptyTag" << std:: endl;
-					newStruct.tokenType = EMPTY_TAG;
+					myStruct.tokenType = EMPTY_TAG;
 				}
-				else
+				else if (tagType == "DECLARATION")
 				{
 					//std::cout << "Token is Declaration" << std:: endl;
-					newStruct.tokenType = DECLARATION;
+					myStruct.tokenType = DECLARATION;
 				}
-				//std:: cout << tagName << std:: endl;
-				newStruct.tokenString = tagName;
-				//need to make sure tag passes tests
-				if(test == true){
+				//also need to send the name of the tag
+				if(myStruct.tokenType == DECLARATION){
+					string temp = deleteAttributes(tagName);
+					tagName = temp;
+					myStruct.tokenString = tagName;
+				}
+				else{
+					myStruct.tokenString = tagName;
+				}
+
+				//from here we know that the tag is a type of a certain tag and we also
+				//know the name of the tag
+				//need to run the tag through the various tests
+				if(test == true)	//we SHOULD test
+				{
 					//NEED TO MAKE SURE THE TAG DOESNT START WITH ILLEGAL CHARACTERS
 					if (tagName[0]== ' ' || tagName[0]== '-' || tagName[0] == '.')
 					{
@@ -175,194 +218,225 @@ bool XMLParser::tokenizeInputString(const std::string &inputString)	{
 							break;
 						default:
 							//do nothing
-							////std::cout << "there are no illegal characters at first index" << std::endl;
+							//std:: cout << "there are no illegal characters at first index" << std::endl;
 							break;
 					}
 
-					//need to make sure the tag names don't include non letters
-					for(int i = 0; i < tagName.size(); i++){
-						//make a char array to temporary hold each element at each index
-						char inx = tagName[i];
+					//NEED TO MAKE SURE THE NORMAL TAGNAMES DONT CONTAIN WEIRD CHARACTERS (not including content tag)
+					//print of what the tags are
+					//need to look through tag and make sure it doesnt contain illegal characters
 
-						//switch though the case statement
-						switch(inx){
+
+
+					for (int a = 0; a < tagName.length()-1; a++)
+					{
+
+						//make a char hold the character at the index
+						char ch = tagName[a];
+
+						//switch through a case statement
+						switch (ch)
+						{
 							case '!' :
-								//std::cout << "ILLEGAL!!" << std::endl;
+
 								return false;
 								break;
 							case '"' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '#' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '$' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '%' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '&' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '\'' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '(' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ')' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '*' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '+' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ',' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '/' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ';' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '<' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '=' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '>' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '?' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '@' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '[' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '\\' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ']' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '^' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '`' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '{' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '|' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '}' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case '~' :
-								//std::cout << "ILLEGAL!!" << std::endl;
 								return false;
 								break;
 							case ' ' :
-								//std::cout << "ILLEGAL!!" << std::endl;
+
 								return false;
 								break;
 							default:
 								//do nothing
-								////std::cout << "there are no illegal characters throughout" << std::endl;
 								break;
 						}
 					}
 				}
-				//need to update the vector and tags
-				tokenizedInputVector.push_back(newStruct);
-				//tell the terminal what happened
-				//std::cout << "successful push..." << std:: endl;
+				//need to update the vector here and in the content section
+				//push the structure to the vector
+				tokenizedInputVector.push_back(myStruct);
+				//std:: cout << "successfully pushed back to vector" << std:: endl;
+				if(tagType== "DECLARATION")
+				{
+					//pos = strLengthTrack.length()+1;
+					pos++;
+					buffer = 4;
+					//also increase strLength track by 4
+					//strLengthTrack += "    ";
+				}
+				else if (tagType == "START_TAG")
+				{
+					pos++;
+					//pos = strLengthTrack.length()+buffer;
+				}
+				else if(tagType == "EMPTY_TAG")
+				{
+					pos++;
+				}
+				else if (tagType == "END_TAG")
+				{
+					pos++;
+				}
+			}	//when this loop breaks, pos is at >
+			//if(alpha == 2)
+			//{
+			//	break;
+			//}
+
+
+		}
+
+		//CONTENT
+		//if the characters are a part of content instead of normal tags
+		if(inputString[pos] != '<' && inputString[pos] != '>')
+		{
+
+			while (inputString[pos] != '<')
+			{
+				tagName += inputString[pos];	//make tag name equal the content
+				pos++;
 			}
-
-			pos++;
-			//clear the tag name
-			tagName = "";
-
-			//after tags, we know our cursor it outside the tag and it should be content after
-			if (inputString[pos+1] != tempTag[pos]){
-				//before we reach the next tag we want to collect whats between it
-				while (inputString[pos+1] != '<'){
-					tagName += inputString[pos+1]; //load it into the tag name string
-					pos++;//increment the cursor
-				}
-				//testing correct output
-				//std::cout << "tagName: " << tagName << std:: endl;
-				//make sure tag is not completley white space
-				int whiteSpace = 0;
-				for (int i = 0; i < tagName.size(); i++){
-					if (isspace(tagName[i])){ //if theres a space increment`
-						whiteSpace++;
-					}
-				}
-				if(whiteSpace < tagName.size()){
-					//if its not completley white space we can make it a CONTENT tag
-					newStruct.tokenString = tagName;
-					//std::cout << "Token is CONTENT" << std:: endl;
-					newStruct.tokenType = CONTENT;
-
-					//push back into the input vector
-					tokenizedInputVector.push_back(newStruct);
-					//std::cout << "successful push" << std::endl;
-				}
+			//testing for correct output
+				//std::cout << "Tagname: " << tagName << std::endl;
+			//keep adding to tag
+			//after tag name is compelete, design a test to make sure it is not all white space
+			//if its good, allow it to store in the vector and make the type 'content'
+			int tempInt = tagName.length();
+			int numSpace = 0;
+			for (int b = 0; b < tempInt; b++)
+			{
+				if(isspace(tagName[b]))
+					numSpace++;
 			}
-			//END OF ALL ITERATIONS
-			tempTag = ""; //clear temp
-			tagName = ""; //clear tag name
+			if(numSpace < tempInt)
+			{
+				//we can make this tag a tag
+				myStruct.tokenString = tagName;
+				myStruct.tokenType = CONTENT;
+
+
+				//need to push the structure to the vector
+				tokenizedInputVector.push_back(myStruct);
+				//std:: cout << "successfully pushed back to vector" << std:: endl;
+			}
+		}
+		//AT END OF EACH ITTERATION
+		//move the pos to spot after >
+		if(myStruct.tokenType != CONTENT)
+		{
 			pos++;
 		}
+
+		//strLengthTrack+= " ";
+		//pos++;
+		if(isspace(inputString[pos]))
+		{
+			//have to increase the string size
+			//strLengthTrack+=" ";
+			pos++;
+			buffer++;
+		}
+	}
 	Tokenize = true;
 	return true;
-	//return false;
 }  // end
 
 // TODO: Implement a helper function to delete attributes from a START_TAG
 // or EMPTY_TAG string (you can change this...)
 static std::string deleteAttributes(std::string input)
 {
-	//Implement this function to delete everything in a tag once it finds a whitespace (ISSPACE())
-	//then figure out how to get the function to stop once it reaches a white space for content
-	return input;
+	std::string temp = "";
+	int y = input.size();
+	for(int i = 0; i < input.size(); i++){
+		if(input[i] == ' '){
+			y=i;
+			break;
+		}
+	}
+	for(int j = 0; j<y; j++){
+		temp+=input[j];
+	}
+	return temp;
 }
 
 // TODO: Implement the parseTokenizedInput method here
