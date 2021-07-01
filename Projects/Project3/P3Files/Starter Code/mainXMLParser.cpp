@@ -26,7 +26,7 @@ int main () {
 		cout << "Unable to open (find) the input file";
 		return -1;
 	}
-
+	
 	cout << inputString;
 
 	// try to tokenize the input string

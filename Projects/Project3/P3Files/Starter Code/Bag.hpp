@@ -23,7 +23,7 @@ private:
 
 public:
 	/** Constructor */
-	Bag();
+	Bag(); 
 	/** Destructor */
 	~Bag();
 	/** Returns the number of items in the bag.
