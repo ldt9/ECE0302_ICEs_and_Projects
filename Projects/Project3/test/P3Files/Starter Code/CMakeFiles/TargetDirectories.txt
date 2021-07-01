@@ -1,0 +1,7 @@
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/test.dir
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/submission.dir
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/mainXMLParser.dir
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/mainStack.dir
+/home/lucas/ECE0302/Projects/Project3/Starter Code-050cf8cd-9390-45be-b8af-1a002fd849c0/Starter Code/CMakeFiles/XMLParser-tests.dir

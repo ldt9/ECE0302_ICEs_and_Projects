@@ -1,0 +1,80 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Bag.cpp
+algorithm
+-
+cstddef
+-
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Bag.hpp
+vector
+-
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.hpp
+Bag.cpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Bag.cpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.cpp
+cstddef
+-
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.hpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.hpp
+Node.cpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.cpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Stack.cpp
+iostream
+-
+cstddef
+-
+cassert
+-
+Stack.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Stack.hpp
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.hpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Stack.hpp
+stdexcept
+-
+Node.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Node.hpp
+Stack.cpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Stack.cpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/XMLParser.cpp
+iostream
+-
+string
+-
+assert.h
+-
+XMLParser.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/XMLParser.hpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/XMLParser.hpp
+string
+-
+Bag.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Bag.hpp
+Stack.hpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/Stack.hpp
+
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/mainXMLParser.cpp
+iostream
+-
+fstream
+-
+string
+-
+XMLParser.cpp
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/XMLParser.cpp
+

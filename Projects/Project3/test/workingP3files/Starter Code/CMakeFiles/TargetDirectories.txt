@@ -1,0 +1,7 @@
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/test.dir
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/submission.dir
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/mainXMLParser.dir
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/mainStack.dir
+/home/lucas/ECE0302/Projects/Project3/test/workingP3files/Starter Code/CMakeFiles/XMLParser-tests.dir

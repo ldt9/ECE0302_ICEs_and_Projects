@@ -48,9 +48,7 @@ public:
   long int getPosition(const T& newValue);
 
 private:
-
-  // TODO
-
+  //none needed
 };
 
 #include "sorted_linked_list.tpp"
