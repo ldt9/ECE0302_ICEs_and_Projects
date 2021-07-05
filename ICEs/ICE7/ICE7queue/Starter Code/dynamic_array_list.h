@@ -10,18 +10,18 @@ public:
 
   // default constructor
   DynamicArrayList();
-  
+
   // copy constructor
   DynamicArrayList(const DynamicArrayList& x);
-    
+
   // destructor
   ~DynamicArrayList();
-  
+
   // copy assignment
   DynamicArrayList& operator=(DynamicArrayList x);
 
   void swap(DynamicArrayList& x, DynamicArrayList& y);
-  
+
   // determine if a list is empty
   bool isEmpty();
 
@@ -45,10 +45,11 @@ public:
 
 private:
 
-  T * data;
-  std::size_t capacity;
+  //need a pointer to an array of type T
+  T* datum;
+  //need a pointer to the end of the array size
   std::size_t size;
-  
+
 };
 
 #include "dynamic_array_list.tpp"
