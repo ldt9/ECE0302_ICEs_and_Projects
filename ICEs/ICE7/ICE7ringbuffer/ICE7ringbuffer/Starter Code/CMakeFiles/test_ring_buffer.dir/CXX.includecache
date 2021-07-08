@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/ring_buffer.h
+memory
+-
+cstdlib
+-
+ring_buffer.tpp
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/ring_buffer.tpp
+
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/ring_buffer.tpp
+ring_buffer.h
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/ring_buffer.h
+cassert
+-
+iostream
+-
+
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/test_ring_buffer.cpp
+ring_buffer.h
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/ring_buffer.h
+cassert
+-
+

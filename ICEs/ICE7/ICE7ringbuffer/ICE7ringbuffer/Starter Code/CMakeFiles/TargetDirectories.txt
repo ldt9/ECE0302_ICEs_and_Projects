@@ -1,0 +1,3 @@
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/ICEs/ICE7/ICE7ringbuffer/ICE7ringbuffer/Starter Code/CMakeFiles/test_ring_buffer.dir
