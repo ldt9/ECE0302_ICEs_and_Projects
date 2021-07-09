@@ -23,12 +23,12 @@ bool RingBuffer<T>::enqueue_back(const T& item)
     data[back] = item;
     ++count;
     //std:: cout << count << std:: endl;
-
+/**
     for(int i = 0; i < queueLength; i++){
       std:: cout << data[i] << std:: endl;
     }
     std:: cout << "-----------------------" << std:: endl;
-
+*/
     return true;
   }
 
@@ -38,13 +38,14 @@ bool RingBuffer<T>::enqueue_back(const T& item)
 template <typename T>
 bool RingBuffer<T>::enqueue_front(const T& item)
 {//todo
-  //std:: cout << front << std:: endl;
-  //std:: cout << (-1) % 3 << std:: endl;
+  //std:: cout << "front: "<< front << std:: endl;
+  //std:: cout << "front mod queueLength: " << (-1) % 3 << std:: endl;
 
   if(count != queueLength){
+    if(front == 0) front = queueLength;
     front = (front - 1) % queueLength;
     //front = (front % queueLength) - 1;
-    std:: cout << front << std:: endl;
+    //std:: cout << front << std:: endl;
     data[front] = item;
     ++count;
 /**
@@ -84,6 +85,7 @@ T RingBuffer<T>::dequeue_back()
   T value;
 
   value = data[back];
+  if(back == 0) back = queueLength;
   back = (back -1) % queueLength;
   //back = (back % queueLength) - 1;
   --count;

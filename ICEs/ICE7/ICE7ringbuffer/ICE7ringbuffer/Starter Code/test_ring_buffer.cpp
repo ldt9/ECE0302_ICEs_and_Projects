@@ -5,7 +5,7 @@
 int main()
 {
   //initialization
-  RingBuffer<int> buff(6);
+  RingBuffer<int> buff(10);
 
   /*********
   * TEST 1 *
@@ -32,39 +32,10 @@ int main()
   /*********
   * TEST 2 *
   *********/
-/**
+
   buff.enqueue_back(45);
   buff.enqueue_back(16);
   buff.enqueue_back(58);
-//  buff.enqueue_back(111);
-//  buff.enqueue_back(23);
-//  buff.enqueue_front(35);
-//  buff.enqueue_back(21);
-//  buff.enqueue_back(99);
-//  buff.enqueue_front(11);
-//  buff.enqueue_back(88);
-
-  //11 35 58 16 45 111 23 21 99 88
-
-  assert(buff.getCount() == 3);
-//  assert(buff.dequeue_front() == 11);
-//  assert(buff.dequeue_front() == 35);
-//  assert(buff.dequeue_front() == 58);
-//  assert(buff.dequeue_front() == 16);
-  assert(buff.dequeue_front() == 45);
-//  assert(buff.dequeue_front() == 111);
-//  assert(buff.dequeue_front() == 23);
-//  assert(buff.dequeue_front() == 21);
-//  assert(buff.dequeue_front() == 99);
-//  assert(buff.dequeue_front() == 88);
-
-  /*********
-  * TEST 3 *
-  *********/
-/**
-  buff.enqueue_front(45);
-  buff.enqueue_front(16);
-  buff.enqueue_front(58);
   buff.enqueue_back(111);
   buff.enqueue_back(23);
   buff.enqueue_front(35);
@@ -76,17 +47,55 @@ int main()
   //11 35 58 16 45 111 23 21 99 88
 
   assert(buff.getCount() == 10);
+  assert(buff.dequeue_front() == 11);
+  assert(buff.dequeue_front() == 35);
   assert(buff.dequeue_back() == 88);
   assert(buff.dequeue_back() == 99);
   assert(buff.dequeue_back() == 21);
   assert(buff.dequeue_back() == 23);
-  /**assert(buff.dequeue_back() == 111);
+  assert(buff.dequeue_back() == 111);
+  assert(buff.dequeue_back() == 58);
+  assert(buff.dequeue_back() == 16);
+  assert(buff.dequeue_back() == 45);
+  assert(buff.getCount() == 0);
+
+  /*********
+  * TEST 3 *
+  *********/
+
+  buff.enqueue_front(45);
+  buff.enqueue_front(16);
+  buff.enqueue_front(58);
+  buff.enqueue_back(111);
+  buff.enqueue_back(23);
+  buff.enqueue_front(35);
+  buff.enqueue_back(21);
+  buff.enqueue_back(99);
+  buff.enqueue_front(11);
+  buff.enqueue_back(88);
+
+  //45 16 58 35 11 88 99 21 23 111
+
+  assert(buff.getCount() == 10);
+  assert(buff.dequeue_back() == 88);
+  assert(buff.dequeue_back() == 99);
+  assert(buff.dequeue_back() == 21);
+  assert(buff.dequeue_back() == 23);
+  assert(buff.dequeue_back() == 111);
+/**
+  assert(buff.dequeue_front() == 11);
+  assert(buff.dequeue_front() == 35);
+  assert(buff.dequeue_front() == 58);
+  assert(buff.dequeue_front() == 16);
+  assert(buff.dequeue_front() == 45);
+*/
+
   assert(buff.dequeue_back() == 45);
   assert(buff.dequeue_back() == 16);
   assert(buff.dequeue_back() == 58);
   assert(buff.dequeue_back() == 35);
   assert(buff.dequeue_back() == 11);
-  assert(buff.getCount() == 0);*/
+  assert(buff.getCount() == 0);
 
 
   return 0;

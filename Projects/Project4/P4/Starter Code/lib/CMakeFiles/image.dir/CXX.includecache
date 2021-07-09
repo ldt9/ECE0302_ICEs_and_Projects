@@ -1,0 +1,50 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/image.cpp
+image.h
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/image.h
+lodepng.cpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/lodepng.cpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/image.h
+algorithm
+-
+cstdint
+-
+stdexcept
+-
+string
+-
+vector
+-
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/lodepng.cpp
+lodepng.h
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/lodepng.h
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/lodepng.h
+string.h
+-
+vector
+-
+string
+-
+lodepng.h
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/lodepng.h
+iostream
+-
+lodepng.h
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/lib/lodepng.h
+
