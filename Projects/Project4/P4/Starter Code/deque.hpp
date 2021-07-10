@@ -2,7 +2,8 @@
 #define DEQUE_HPP
 
 #include "abstract_deque.hpp"
-#include "Node.hpp"
+//#include "Node.hpp"
+#include "linked_list.hpp"
 #include <memory>
 
 template <typename T>
@@ -11,14 +12,21 @@ class Deque: public AbstractDeque<T>{
 private:
 
     //need 2 pointers to the front and back of the linked list
-    Node<T>* frontPtr;
-    Node<T>* backPtr;
+    //Node<T>* frontPtr;
+    //Node<T>* backPtr;
+
+    //let's use a linked list instead of bare nodes
+    LinkedList<T> deque;
+
+    //helper function for copy assignment and constructor
+    // get a copy of the item at position using 0-based indexing
+    T getEntry(std::size_t position) const;
 
     //holds number of elements in deque
-    int count;
+    //int count; //unnecessary now since we can let the linked list composition handle this
 
     //helps with popBack implementation
-    Node<T>* getNodeBefore(const T& anEntry) const;
+    //Node<T>* getNodeBefore(const T& anEntry) const; //put this in the node class
 
 public:
 

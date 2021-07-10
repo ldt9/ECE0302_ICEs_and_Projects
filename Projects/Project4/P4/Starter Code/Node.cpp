@@ -1,5 +1,21 @@
 #include "Node.hpp"
 
+//private helper function to make popping from the back easier
+
+/**template<class ItemType>
+Node<ItemType>* Node<ItemType>::getNodeBefore(const ItemType& anEntry) const
+{
+  Node<ItemType>* curPtr = next;
+  Node<ItemType>* prevPtr;
+  //traverse the list until the end is reached and set ptrs accordingly
+  while((curPtr != nullptr) && (anEntry != curPtr->getItem())){
+    prevPtr = curPtr;
+    curPtr = curPtr->getNext();
+  }
+  return prevPtr;
+}
+*/
+
 template<class ItemType>
 Node<ItemType>::Node() : next(nullptr)
 {

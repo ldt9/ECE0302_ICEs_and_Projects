@@ -4,8 +4,11 @@
 CMakeFiles/student-tests.dir/test_deque.cpp.o: Node.cpp
 CMakeFiles/student-tests.dir/test_deque.cpp.o: Node.hpp
 CMakeFiles/student-tests.dir/test_deque.cpp.o: abstract_deque.hpp
+CMakeFiles/student-tests.dir/test_deque.cpp.o: abstract_list.hpp
 CMakeFiles/student-tests.dir/test_deque.cpp.o: catch.hpp
 CMakeFiles/student-tests.dir/test_deque.cpp.o: deque.hpp
 CMakeFiles/student-tests.dir/test_deque.cpp.o: deque.tpp
+CMakeFiles/student-tests.dir/test_deque.cpp.o: linked_list.hpp
+CMakeFiles/student-tests.dir/test_deque.cpp.o: linked_list.tpp
 CMakeFiles/student-tests.dir/test_deque.cpp.o: test_deque.cpp
 

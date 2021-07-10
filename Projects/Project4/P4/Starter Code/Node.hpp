@@ -18,6 +18,7 @@ public:
    void setNext(Node<ItemType>* nextNodePtr);
    ItemType getItem() const ;
    Node<ItemType>* getNext() const ;
+   //Node<ItemType>* getNodeBefore(const ItemType& anEntry) const ;
 }; // end Node
 
 #include "Node.cpp"

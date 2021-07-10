@@ -4,31 +4,29 @@
   //CONSTRUCTOR//
   template<typename T>
   Deque<T>::Deque()
-  {
-    //initialize pointers to null
-    frontPtr = nullptr;
-    backPtr = nullptr;
-
-    //set element amount to 0
-    count = 0;
-
+  { //using the linked list constructor will be fine
   }
 
   //DESTRUCTOR//
   template<typename T>
   Deque<T>::~Deque()
   {
-    //reset all private variables
     while(!isEmpty()){
-      popFront();
+      popFront(); //pop the front till empty
     }
-    //no need to unallocate pointers because they're smart
+  }
+
+  //set entry to help with copy assignment and constructor
+  template<typename T>
+  T Deque<T>::getEntry(std::size_t position) const{
+    return deque.getEntry(position);
   }
 
   //COPY ASSIGNMENT//
   template<typename T>
   Deque<T>& Deque<T>::operator=(const Deque<T>& x)
   {
+    /**
     //set the size's equal to eachother
     count = x.count;
 
@@ -59,7 +57,17 @@
         newNodePtr = newNodePtr->getNext();//shift both pointers to their next elements
         tempPtr1 = tempPtr1->getNext();
       }
+    }*/
+
+    //go through the whole x deque and use Linked list set entry feature to make an exact copy at each place
+    for(int i = 0; i < x.deque.getLength(); i++){
+      deque.setEntry(i, x.getEntry(i));
     }
+    /**
+    for(int i = 0; i < deque.getLength(); i++){
+      std:: cout << getEntry(i) << std:: endl;
+    }
+    */
     return *this;
   }
 
@@ -67,6 +75,7 @@
   template<typename T>
   Deque<T>::Deque(const Deque<T>& x)
   {
+    /**
     //set the size's equal to eachother
     count = x.count;
 
@@ -97,6 +106,12 @@
         newNodePtr = newNodePtr->getNext();//shift both pointers to their next elements
         tempPtr1 = tempPtr1->getNext();
       }
+    }
+    */
+
+    //go through the whole x deque and use Linked list set entry feature to make an exact copy at each place
+    for(int i = 0; i < x.deque.getLength(); i++){
+      deque.setEntry(i, x.getEntry(i));
     }
   }
 
@@ -107,13 +122,14 @@
   bool Deque<T>::isEmpty() const noexcept
   {
     //return false as default
-    return (count == 0);
+    return (deque.isEmpty());
   }
 
   //add item to the front of the deque
   template<typename T>
   void Deque<T>::pushFront(const T & item)
   {
+    /**
     Node<T>* newNodePtr = new Node<T>(item);
     //Insert the new Node
     if (isEmpty()){
@@ -124,12 +140,16 @@
       frontPtr = newNodePtr;         //New node is inserted at front
     }
     count++;
+    */
+
+    deque.insert(0, item); //insert item at front
   }
 
   //remove an item at the front of a deque
   template<typename T>
   void Deque<T>::popFront()
   {
+    /**
     bool result = false;
     if (!isEmpty()){
       //queue is not empty remove front element
@@ -149,19 +169,23 @@
       }
     }
     count--;
+    */
+
+    deque.remove(0); //remove first element
   }
 
   //returns the item at the front of the deque
   template<typename T>
   T Deque<T>::front() const
   {
-    return frontPtr->getItem();
+    return deque.getEntry(0);
   }
 
   //at item to the back of the deque
   template<typename T>
   void Deque<T>::pushBack(const T & item)
   {
+    /**
     Node<T>* newNodePtr = new Node<T>(item);
     //Insert the new Node
     if (isEmpty()){
@@ -172,26 +196,18 @@
       backPtr = newNodePtr;         //New node is inserted at back
     }
     count++;
-  }
+    */
 
-  //private helper function to make popping from the back easier
-  template<typename T>
-  Node<T>* Deque<T>::getNodeBefore(const T& anEntry) const
-  {
-    Node<T>* curPtr = frontPtr;
-    Node<T>* prevPtr;
-    //traverse the list until the end is reached and set ptrs accordingly
-    while((curPtr != nullptr) && (anEntry != curPtr->getItem())){
-      prevPtr = curPtr;
-      curPtr = curPtr->getNext();
-    }
-    return prevPtr;
+    //insert item at end of linked list
+    if(deque.getLength() == 0) deque.insert(0, item);
+    else deque.insert(deque.getLength(), item);
   }
 
   //remove an item at the back of the deque
   template<typename T>
   void Deque<T>::popBack()
   {
+    /**
     bool result = false;
     if (!isEmpty()){
       //queue is not empty remove back element
@@ -212,12 +228,15 @@
       }
     }
     count--;
+    */
+
+    //remove item at end
+    deque.remove(deque.getLength() - 1);
   }
 
   //returns the item at the back of the deque
   template<typename T>
   T Deque<T>::back() const
   {
-    return backPtr->getItem();
-
+    return deque.getEntry(deque.getLength()-1);
   }

@@ -16,6 +16,8 @@ Node.cpp
 
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_deque.hpp
 
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_list.hpp
+
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/catch.hpp
 sstream
 -
@@ -249,8 +251,8 @@ assert.h
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.hpp
 abstract_deque.hpp
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_deque.hpp
-Node.hpp
-/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.hpp
+linked_list.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.hpp
 memory
 -
 deque.tpp
@@ -259,6 +261,18 @@ deque.tpp
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.tpp
 deque.hpp
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.hpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.hpp
+abstract_list.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_list.hpp
+Node.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.hpp
+linked_list.tpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.tpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.tpp
+linked_list.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.hpp
 
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/test_deque.cpp
 catch.hpp
