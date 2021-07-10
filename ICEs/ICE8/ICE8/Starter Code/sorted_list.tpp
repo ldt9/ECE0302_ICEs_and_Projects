@@ -39,14 +39,30 @@ std::size_t SortedList<T, L>::getLength()
 
 template <typename T, typename L>
 void SortedList<T, L>::insert(const T& item)
-{
-  // TODO
+{ //todo
+  int savedPos = 0; //variable to hold locaiton of item
+  for(int i = 0; i < plist.getLength(); i++){
+    if(plist.getEntry(i) < item) savedPos++; //increment when item is still greater than current
+  }
+  plist.insert(savedPos, item); //insert once it is at the point where everyting in the list is greater to the left
+
+  for(int i = 0; i < plist.getLength(); i++){
+    std::cout<<plist.getEntry(i) << std::endl;
+  }
 }
 
 template <typename T, typename L>
 void SortedList<T, L>::remove(const T& item)
-{
-  // TODO
+{ //todo
+  int savedPos = 0; //variable to hold locaiton of item
+  for(int i = 0; i < plist.getLength(); i++){
+    if(plist.getEntry(i) < item) savedPos++; //increment when item is still greater than current
+  }
+  plist.remove(savedPos); //remove at the position
+
+  for(int i = 0; i < plist.getLength(); i++){
+    std::cout<<plist.getEntry(i) << std::endl;
+  }
 }
 
 template <typename T, typename L>
@@ -69,7 +85,10 @@ T SortedList<T, L>::getEntry(std::size_t position)
 
 template <typename T, typename L>
 long int SortedList<T, L>::getPosition(const T& newValue)
-{
-  // TODO
-  return 0;
+{ //todo
+  int savedPos; //variable to hold locaiton of newValue
+  for(int i = 0; i < plist.getLength(); i++){
+    if(plist.getEntry(i) == newValue) savedPos = i;
+  }
+  return savedPos; //return the position of the new value
 }

@@ -50,8 +50,9 @@ public:
 
 private:
 
+  //composition from dynamic_array_list
   L plist; // private list
-  
+
 };
 
 #include "sorted_list.tpp"
