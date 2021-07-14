@@ -195,7 +195,7 @@ template <typename T>
 T LinkedList<T>::getEntry(std::size_t position) const
 {
   if(isEmpty()) throw std::range_error("empty list in remove");
-  if(position >= getLength() || position < 0) throw std::range_error("item nonexistent");  
+  if(position >= getLength() || position < 0) throw std::range_error("item nonexistent");
   bool validity = (position >= 0) && (position <= size);
   //lets make sure we are able to access this position
   if(validity){
@@ -203,7 +203,7 @@ T LinkedList<T>::getEntry(std::size_t position) const
     Node<T>* nodePtr = getNodeAt(position);
     return nodePtr->getItem();
   }
-  return false;
+  //return false;
 }
 
 template <typename T>

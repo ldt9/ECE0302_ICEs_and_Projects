@@ -6,5 +6,95 @@
 
 #IncludeRegexTransform: 
 
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.cpp
+Node.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.hpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.hpp
+Node.cpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.cpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_deque.hpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_list.hpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.hpp
+abstract_deque.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_deque.hpp
+linked_list.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.hpp
+memory
+-
+deque.tpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.tpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.tpp
+deque.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.hpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.hpp
+abstract_list.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/abstract_list.hpp
+Node.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/Node.hpp
+linked_list.tpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.tpp
+
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.tpp
+linked_list.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/linked_list.hpp
+
 /home/lucas/ECE0302/Projects/Project4/P4/Starter Code/pathfinder.cpp
+iostream
+-
+cassert
+-
+string
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/string
+image.cpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/image.cpp
+deque.hpp
+/home/lucas/ECE0302/Projects/Project4/P4/Starter Code/deque.hpp
+
+lib/image.cpp
+image.h
+lib/image.h
+lodepng.cpp
+lib/lodepng.cpp
+
+lib/image.h
+algorithm
+-
+cstdint
+-
+stdexcept
+-
+string
+-
+vector
+-
+
+lib/lodepng.cpp
+lodepng.h
+lib/lodepng.h
+limits.h
+-
+stdio.h
+-
+stdlib.h
+-
+
+lib/lodepng.h
+string.h
+-
+vector
+-
+string
+-
+lodepng.h
+lib/lodepng.h
+iostream
+-
+lodepng.h
+lib/lodepng.h
 
