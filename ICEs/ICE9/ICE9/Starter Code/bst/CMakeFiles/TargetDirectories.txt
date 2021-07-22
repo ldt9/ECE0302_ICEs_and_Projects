@@ -1,0 +1,4 @@
+/home/lucas/ECE0302/ICEs/ICE9/ICE9/Starter Code/bst/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/ICEs/ICE9/ICE9/Starter Code/bst/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/ICEs/ICE9/ICE9/Starter Code/bst/CMakeFiles/test.dir
+/home/lucas/ECE0302/ICEs/ICE9/ICE9/Starter Code/bst/CMakeFiles/test_bst.dir

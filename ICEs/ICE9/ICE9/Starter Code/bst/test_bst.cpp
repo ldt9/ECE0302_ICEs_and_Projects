@@ -102,6 +102,10 @@ void test_copy_assign()
         error("TreeType retrieve failed", __LINE__);
     if (bst2.retrieve(51, item))
         error("TreeType retrieve should have failed", __LINE__);
+
+        int a[] = {1, 8, 7, 5, 2, 9, 10};
+
+        bst2.treeSort(a, 7);
 }
 
 int main()
@@ -110,6 +114,7 @@ int main()
     test_creation();
     test_insert_retrieve_delete();
     test_copy_assign();
+
 
     return EXIT_SUCCESS;
 }
