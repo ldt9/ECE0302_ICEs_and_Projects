@@ -1,0 +1,3 @@
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/CMakeFiles/rebuild_cache.dir
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/CMakeFiles/edit_cache.dir
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/CMakeFiles/test_priority_queue.dir

@@ -1,0 +1,44 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/abstract_list.h
+cstdlib
+-
+
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/abstract_priority_queue.h
+
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/dynamic_array_list.h
+abstract_list.h
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/abstract_list.h
+dynamic_array_list.tpp
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/dynamic_array_list.tpp
+
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/dynamic_array_list.tpp
+dynamic_array_list.h
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/dynamic_array_list.h
+algorithm
+-
+stdexcept
+-
+iostream
+-
+
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/heap_priority_queue.h
+abstract_priority_queue.h
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/abstract_priority_queue.h
+dynamic_array_list.h
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/dynamic_array_list.h
+
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/test_priority_queue.cpp
+cassert
+-
+dynamic_array_list.h
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/dynamic_array_list.h
+heap_priority_queue.h
+/home/lucas/ECE0302/ICEs/ICE10/ICE10/Starter Code/heap_priority_queue.h
+
