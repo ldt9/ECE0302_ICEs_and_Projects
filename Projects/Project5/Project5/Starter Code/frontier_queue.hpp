@@ -40,7 +40,7 @@ public:
 private:
 
   std::vector<State<T>> queue;
-  
+
 };
 
 #include "frontier_queue.tpp"

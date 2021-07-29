@@ -1,0 +1,58 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/frontier_queue.hpp
+state.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/state.hpp
+vector
+-
+frontier_queue.tpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/frontier_queue.tpp
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/frontier_queue.tpp
+frontier_queue.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/frontier_queue.hpp
+iostream
+-
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/puzzle.hpp
+utility
+-
+string
+-
+sstream
+-
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/puzzle_solver.cpp
+puzzle_solver.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/puzzle_solver.hpp
+functional
+-
+unordered_set
+-
+puzzle.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/puzzle.hpp
+state.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/state.hpp
+frontier_queue.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/frontier_queue.hpp
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/puzzle_solver.hpp
+utility
+-
+puzzle.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/puzzle.hpp
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/state.hpp
+state.tpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/state.tpp
+
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/state.tpp
+state.hpp
+/home/lucas/ECE0302/Projects/Project5/Project5/Starter Code/state.hpp
+
